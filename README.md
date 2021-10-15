@@ -3,8 +3,8 @@
 Standing for Budget Manager, this app will help save your money by better managing it.
 # Development environment
 
-* ruby 3.0.1
-* rails 6.1.4
+* ruby 2.7.4
+* rails 5.2.5
 
  # Technology incorporated into this application:
 
