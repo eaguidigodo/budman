@@ -33,7 +33,11 @@ Follow [this link](https://docs.google.com/spreadsheets/d/10BRN7Nhl36U05Ym3ggUUe
 Follow [this link](https://drive.google.com/file/d/1pxEHsL8E7sgTmsmLzDBYK0BPV9N0AUkn/view?usp=sharing)
 
 # ER diagram
+[Here is the draw.io link](https://drive.google.com/file/d/1Yvoi_Wf_dWzIh3iJqiJxZAy76qCp3sh0/view?usp=sharing)
+
 ![](docs/budman_db.drawio.png)
 
 # Screen Transition diagram
+[Here is the draw.io link](https://drive.google.com/file/d/1o46gs7_-BdW25ZtvDo6Fd2H8N7YqBKYb/view?usp=sharing)
+
 ![](docs/budman_transition.drawio.png)
