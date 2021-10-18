@@ -16,7 +16,7 @@ Standing for Budget Manager, this app will help save your money by better managi
 
 # How to execute this application
 
-* Clone the repository throught this [link](https://github.com/eaguidigodo/budman.git)
+* Clone the repository: **git clone https://github.com/eaguidigodo/budman.git**
 * Run: **bundle install**
 * run: **rails db:create**
 * run: **rails db:migrate**
