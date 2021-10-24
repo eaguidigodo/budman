@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: MyString
+  need: MyString
+  amount: 1
+  date: 2021-10-24
+  description: MyText
+  budget: one
+
+two:
+  day: MyString
+  need: MyString
+  amount: 1
+  date: 2021-10-24
+  description: MyText
+  budget: two
