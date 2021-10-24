@@ -17,7 +17,8 @@ class BudgetsController < ApplicationController
   # GET /budgets/new
   def new
     @budget = Budget.new
-    @budget.needs.build
+    5.times{@budget.needs.build}
+      
   end
 
   # GET /budgets/1/edit

@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :day %>
-    <%= form.text_field :day %>
+    <%= form.select :day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']%>
   </div>
 
   <div class="field">
     <%= form.label :need %>
-    <%= form.text_field :need %>
+    <%= form.select :need, options_for_select(Need.distinct.pluck(:name).uniq) %>
   </div>
 
   <div class="field">
@@ -36,10 +36,6 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :budget_id %>
-    <%= form.text_field :budget_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
