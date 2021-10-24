@@ -17,10 +17,12 @@ class BudgetsController < ApplicationController
   # GET /budgets/new
   def new
     @budget = Budget.new
+    @budget.needs.build
   end
 
   # GET /budgets/1/edit
   def edit
+    @budget.needs.build
   end
 
   # POST /budgets or /budgets.json
@@ -68,6 +70,9 @@ class BudgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def budget_params
-      params.require(:budget).permit(:start_date, :end_date, :amount)
+      params.require(:budget)
+            .permit(:start_date, :end_date, :amount,
+                    needs_attributes: [:id, :amount, :name, :priority, :status]
+      )
     end
 end

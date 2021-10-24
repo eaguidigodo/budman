@@ -26,6 +26,23 @@
     <%= form.number_field :amount %>
   </div>
 
+  <%= form.fields_for :needs do |need| %>
+    <h2>Name of need<%=need.index + 1%> </h2>
+    <div class="field">
+      <%= need.label :name, "Name of need" %>
+      <%= need.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= need.label :amount, "Amount for this need" %>
+      <%= need.number_field :amount %>
+    </div>
+
+    <div class="field">
+      <%= need.label :priority, "This need priority" %>
+      <%= need.select :priority, ['very important', 'important', 'not important'] %>
+    </div>
+    <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>
