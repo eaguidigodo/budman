@@ -4,7 +4,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets or /budgets.json
   def index
-    if current_user.admin
+    if current_user.try(:admin?)
         redirect_to rails_admin_path
     end
     @budgets = Budget.all
@@ -25,7 +25,7 @@ class BudgetsController < ApplicationController
 
   # POST /budgets or /budgets.json
   def create
-    @budget = Budget.new(budget_params)
+    @budget = current_user.budgets.build(budget_params)
 
     respond_to do |format|
       if @budget.save

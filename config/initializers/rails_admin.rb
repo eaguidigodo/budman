@@ -16,6 +16,8 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless current_user.admin == true
   end
 
+  #config.authorize_with :cancan
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
