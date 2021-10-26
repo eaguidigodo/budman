@@ -8,26 +8,32 @@ class BudgetsController < ApplicationController
         redirect_to rails_admin_path
     end
     
-    @budget_recap = {}
+    
     @budgets_recap = []
     @budgets = Budget.all
     @budgets.each do |budget|
+      @budget_recap = {}
+      puts "Ici budget#{budget} puis les expenses #{budget.expenses}"
       amount = 0
-      budget.needs.each do |bud|
-        if bud.amount == bud.amount.to_i.to_s
+      budget.expenses.each_with_index do |bud, i|
+        puts "Montant du expense #{bud.amount}"
+        puts "result du test #{bud.amount == bud.amount.to_i.to_s}"
+        if bud.amount.to_i == bud.amount
           amount += bud.amount
+          puts "Montant de amount à l'itération #{i} est#{amount}"
         end
+        @budget_recap['used'] = amount
       end
-      @budget_recap['used'] = amount
       @budget_recap['start_date'] = budget.start_date
       @budget_recap['end_date'] = budget.end_date
       @budget_recap['amount'] = budget.amount
       @budget_recap['id'] = budget.id
       @budget_recap['remain'] = budget.amount - amount
       @budgets_recap += [@budget_recap]
+      puts "amount dans recap #{@budget_recap['used']}"
     end
 
-  #  raise
+   
   end
 
   # GET /budgets/1 or /budgets/1.json
