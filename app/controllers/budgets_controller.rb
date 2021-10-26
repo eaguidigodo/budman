@@ -7,7 +7,27 @@ class BudgetsController < ApplicationController
     if current_user.try(:admin?)
         redirect_to rails_admin_path
     end
+    
+    @budget_recap = {}
+    @budgets_recap = []
     @budgets = Budget.all
+    @budgets.each do |budget|
+      amount = 0
+      budget.needs.each do |bud|
+        if bud.amount == bud.amount.to_i.to_s
+          amount += bud.amount
+        end
+      end
+      @budget_recap['used'] = amount
+      @budget_recap['start_date'] = budget.start_date
+      @budget_recap['end_date'] = budget.end_date
+      @budget_recap['amount'] = budget.amount
+      @budget_recap['id'] = budget.id
+      @budget_recap['remain'] = budget.amount - amount
+      @budgets_recap += [@budget_recap]
+    end
+
+  #  raise
   end
 
   # GET /budgets/1 or /budgets/1.json
@@ -17,7 +37,7 @@ class BudgetsController < ApplicationController
   # GET /budgets/new
   def new
     @budget = Budget.new
-    5.times{@budget.needs.build}
+    @budget.needs.build
       
   end
 
@@ -72,7 +92,7 @@ class BudgetsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def budget_params
       params.require(:budget)
-            .permit(:start_date, :end_date, :amount,
+            .permit(:start_date, :end_date, :amount, :name,
                     needs_attributes: [:id, :amount, :name, :priority, :status]
       )
     end

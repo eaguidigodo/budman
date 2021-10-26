@@ -1,4 +1,4 @@
-
+<h2>Détails du budget </h2
 <p>
   <strong>Start date:</strong>
   <%= @budget.start_date %>
@@ -14,5 +14,8 @@
   <%= @budget.amount %>
 </p>
 
-<%= link_to 'Edit', edit_budget_path(@budget) %> |
-<%= link_to 'Back', budgets_path %>
+<div class="col-md-2 offset-md-2">
+<%= button_to 'Enregistrer une dépense', new_expense_path(budget_id: @budget.id), :method => "get", class:"btn btn-primary btn-lg" %>
+</div>
+<%= link_to 'Modifier', edit_budget_path(@budget) %> |
+<%= link_to 'Retour', budgets_path %>

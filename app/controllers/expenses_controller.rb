@@ -13,6 +13,7 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
+    @budget = Budget.find(params[:budget_id])
   end
 
   # GET /expenses/1/edit
@@ -21,7 +22,9 @@ class ExpensesController < ApplicationController
 
   # POST /expenses or /expenses.json
   def create
-    @expense = Expense.new(expense_params)
+    #@expense = Expense.new(expense_params)
+   @budget = Budget.find(params[:budget_id])
+    @expense = @budget.expenses.new(expense_params)
 
     respond_to do |format|
       if @expense.save

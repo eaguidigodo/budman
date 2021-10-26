@@ -1,0 +1,2 @@
+class AddBudgetNameToExpense < ApplicationRecord
+end
