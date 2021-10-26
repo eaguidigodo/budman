@@ -1,4 +1,4 @@
-<h2>Détails du budget </h2
+<h2>Budget details </h2
 <p>
   <strong>Start date:</strong>
   <%= @budget.start_date %>
@@ -16,18 +16,42 @@
 <hr>
 
 <p>
-  <strong>Dépenses déjà effectuées:</strong>
-  <% @budget.expenses.each do |expense| %>
-    <p>
-      <%= expense.need%>
-      <%= expense.amount%>
-    </p>
-    
+  <strong>Expenses already done:</strong>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+    <th scope="col">#</th>
+      <th scope="col">Day </th>
+      <th scope="col">Need </th>
+      <th scope="col"> Amount</th>
+      <th scope="col">Date</th>
+      <th scope="col">Description</th>
+      <th scope="col" colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @budget.expenses.each_with_index do |expense,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= expense.day %></td>
+        <td><%= expense.need %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.date %></td>
+        <td><%= expense.description %></td>
+        <td><%= link_to 'Show', expense %></td>
+        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-</p>
+  </tbody>
+</table>
+<br>
+
 
 <div class="col-md-2 offset-md-2">
-<%= link_to 'Enregistrer une dépense', new_expense_path(budget_id: params[:id]), :method => "get", class:"btn btn-primary btn-lg" %>
+<%= link_to 'Record an expense', new_expense_path(budget_id: params[:id]), :method => "get", class:"btn btn-primary btn-lg" %>
 </div>
-<%= link_to 'Modifier', edit_budget_path(@budget) %> |
-<%= link_to 'Retour', budgets_path %>
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
+<%= link_to 'Back', budgets_path %>
