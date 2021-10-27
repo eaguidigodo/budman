@@ -12,7 +12,8 @@ Standing for Budget Manager, this app will help save your money by better managi
  * devise
 
 # Other technology
-* React.js (A front end framework like vue.js)
+* gem 'capybara-bootstrap-datepicker' : This gem does something very simple: it allows you to trigger the Bootstrap date picker to select the date you want.
+
 
 # How to execute this application
 

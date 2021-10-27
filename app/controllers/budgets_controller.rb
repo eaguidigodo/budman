@@ -10,17 +10,13 @@ class BudgetsController < ApplicationController
     
     
     @budgets_recap = []
-    @budgets = Budget.all
+    @budgets = current_user.budgets.all
     @budgets.each do |budget|
       @budget_recap = {}
-      puts "Ici budget#{budget} puis les expenses #{budget.expenses}"
       amount = 0
       budget.expenses.each_with_index do |bud, i|
-        puts "Montant du expense #{bud.amount}"
-        puts "result du test #{bud.amount == bud.amount.to_i.to_s}"
         if bud.amount.to_i == bud.amount
           amount += bud.amount
-          puts "Montant de amount à l'itération #{i} est#{amount}"
         end
         @budget_recap['used'] = amount
       end
@@ -30,30 +26,24 @@ class BudgetsController < ApplicationController
       @budget_recap['id'] = budget.id
       @budget_recap['remain'] = budget.amount - amount
       @budgets_recap += [@budget_recap]
-      puts "amount dans recap #{@budget_recap['used']}"
     end
 
    
   end
 
-  # GET /budgets/1 or /budgets/1.json
   def show
   end
 
-  # GET /budgets/new
   def new
     @budget = Budget.new
-    #@budget.needs.build
     5.times{@budget.needs.build}
       
   end
 
-  # GET /budgets/1/edit
   def edit
     @budget.needs.build
   end
 
-  # POST /budgets or /budgets.json
   def create
     @budget = current_user.budgets.build(budget_params)
 
@@ -68,7 +58,6 @@ class BudgetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /budgets/1 or /budgets/1.json
   def update
     respond_to do |format|
       if @budget.update(budget_params)
@@ -81,7 +70,6 @@ class BudgetsController < ApplicationController
     end
   end
 
-  # DELETE /budgets/1 or /budgets/1.json
   def destroy
     @budget.destroy
     respond_to do |format|
@@ -91,12 +79,10 @@ class BudgetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_budget
       @budget = Budget.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def budget_params
       params.require(:budget)
             .permit(:start_date, :end_date, :amount, :name,

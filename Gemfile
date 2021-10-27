@@ -16,10 +16,26 @@ gem 'rexml'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 
+gem 'rspec-rails'
+gem 'spring-commands-rspec'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'launchy'
+gem 'webdrivers'
+gem 'dotenv-rails'
+gem 'unicorn'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capistrano', '3.16.0' # set of tools for capistrano
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
@@ -33,7 +49,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'capybara-bootstrap-datepicker'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
