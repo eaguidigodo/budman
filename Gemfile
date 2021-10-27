@@ -24,6 +24,7 @@ gem 'launchy'
 gem 'webdrivers'
 gem 'dotenv-rails'
 gem 'unicorn'
+gem 'rake' , '>= 0.9.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
