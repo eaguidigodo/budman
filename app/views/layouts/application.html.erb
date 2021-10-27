@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com' %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.gstatic.com' %>
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css2?family=Niconne&display=swap' %>
+
     <%= javascript_include_tag    'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -52,11 +56,6 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
 
-    <% if !user_signed_in? %>
-    <p>Welcome to budman, the app that helps you save money
-          You don't have account yet? <%= link_to "Sign up", new_user_registration_path, class:"text-white" %> please
-    </p>
-    <% end %>
     <%= yield %>
 
     <!-- Footer -->
