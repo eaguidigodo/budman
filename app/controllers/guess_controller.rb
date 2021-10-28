@@ -21,4 +21,10 @@ class GuessController < ApplicationController
         puts "dans le controller le id est: #{current_user.id}"
         @user = User.find(current_user.id)
     end
+
+    def homepage
+        if current_user.present?
+            redirect_to budgets_path
+        end
+    end
 end

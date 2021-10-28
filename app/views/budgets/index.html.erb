@@ -1,5 +1,5 @@
-<% if @budgets_recap.present? %>
-<%= react_component("HelloWorld", { greeting: "We are happy to see you here #{current_user.name}" }) %>
+
+<%= react_component("Welcome", { greeting: "Budget Table, => This table allow you to define a budget and different things you plan to do with it" }) %>
 
 
 <h1 class="text-center" >Budgets</h1>
@@ -42,21 +42,4 @@
       </div>
 </div>
 
-<% else %>
-
-<div class="card text-center">
-  <div class="card-header">
-    Budget Manager (BudMan)
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= I18n.t('views.messages.welcome') %></h5>
-    <p class="card-text top"><%= I18n.t('views.messages.description') %></p>
-    <%= link_to 'Create new budget', new_budget_path, class:"btn btn-primary btn-lg text-white" %>
-  </div>
-
-</div>
-
-
-
-<% end %>
 
