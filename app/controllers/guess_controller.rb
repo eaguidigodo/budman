@@ -16,4 +16,9 @@ class GuessController < ApplicationController
         sign_in @user
         redirect_to budgets_path
     end
+
+    def show 
+        puts "dans le controller le id est: #{current_user.id}"
+        @user = User.find(current_user.id)
+    end
 end

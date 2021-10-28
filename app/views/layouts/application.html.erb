@@ -38,7 +38,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li ><a href="#" class="text-white"><span class="material-icons ">person</span> <%= link_to "Profile", edit_user_registration_path, class:"text-white" %></a></li>
+        <li ><a href="#" class="text-white"><span class="material-icons ">person</span> <%= link_to "Profile", show_user_path, class:"text-white" %></a></li>
         <li><a class="text-white" href="#"><span class="material-icons">logout</span> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white" %></a></li>
         <% else %>
         <li class="text-white"><span class="material-icons ">person</span> <%= link_to "Sign up", new_user_registration_path, class:"text-white" %></li>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   get "guess_admin", to: "guess#guest_admin"
   get "guess_user", to: "guess#guest_user"
+  get 'show_user', to: "guess#show"
   resources :budgets
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
