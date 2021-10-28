@@ -47,10 +47,8 @@
     Budget Manager (BudMan)
   </div>
   <div class="card-body">
-    <h5 class="card-title">Welcome to budman, your app money saver!</h5>
-    <p class="card-text top">Budman is the app that helps you save your money. You can register
-    your daily expenses and consult them later. This will allow you to track your expenses and know 
-    how to better manage your account. D'ont know how to start? Click below to start the adventure...</p>
+    <h5 class="card-title"><%= I18n.t('views.messages.welcome') %></h5>
+    <p class="card-text top"><%= I18n.t('views.messages.description') %></p>
     <%= link_to 'Create new budget', new_budget_path, class:"btn btn-primary btn-lg text-white" %>
   </div>
 

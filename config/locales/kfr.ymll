@@ -29,5 +29,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+fr:
+  views:
+    messages:
+      welcome: 'Bienvenue dans Budma, votre gestionnaire de budgets!'
+      description: "Budman vous permet d'economiser votre argent. Vous pouvez journaliser vos depenses afin de mieux controler votre argent"
+            
