@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :expenses
   resources :needs
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: "budgets#index"
+  root to: "guess#homepage"
   devise_for :users
   get "guess_admin", to: "guess#guest_admin"
   get "guess_user", to: "guess#guest_user"
