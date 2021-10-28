@@ -1,5 +1,6 @@
-
 <% if @budgets_recap.present? %>
+<%= react_component("HelloWorld", props: { greeting: "Hello from react-rails.", budgets: @budgets_recap }) %>
+
 <h1 class="text-center" >Budgets</h1>
 
 <table class="table table-hover">
