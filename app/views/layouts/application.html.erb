@@ -32,9 +32,11 @@
           <li class="nav-item active">
           <%= link_to 'Home', budgets_path , class:"nav-link"%>
           </li>
+          <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'New budget', new_budget_path , class:"nav-link"%>
           </li>
+          <% end %>
  
         </ul>
         <ul class="nav navbar-nav navbar-right">
