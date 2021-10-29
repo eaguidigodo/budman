@@ -48,6 +48,8 @@ class BudgetsController < ApplicationController
     @budget = current_user.budgets.build(budget_params)
 
     respond_to do |format|
+     # puts "debut: #{params[:start_date]}, fin: #{params[:end_date]}"
+      #raise
       if @budget.save
         format.html { redirect_to @budget, notice: "Votre Budget a été créé avec succès." }
         format.json { render :show, status: :created, location: @budget }

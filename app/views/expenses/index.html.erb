@@ -26,13 +26,11 @@
       <td><%= expense.description %></td>
       <td><%= link_to I18n.t('views.link.show'), expense %></td>
       <td><%= link_to I18n.t('views.link.edit'), edit_expense_path(expense) %></td>
-      <td><%= link_to I18n.t('views.link.delete')', expense, method: :delete, data: { confirm: I18n.t('views.actions.confirm') } %></td>
+      <td><%= link_to I18n.t('views.link.delete'), expense, method: :delete, data: { confirm: I18n.t('views.actions.confirm') } %></td>
     </tr>
   <% end %>
 </tbody>
 </table>
-<br>
 
-<br>
 
 

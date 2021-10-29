@@ -76,3 +76,8 @@ en:
       edit: "Edit"
       delete: "Delete"
       show: "Show"
+  models:
+    notice: "Start date can't be pas date please!"
+    notice2: "End date must be greater than start date."
+    expense:
+      notice: "The depense date doesn't correspond to the defined period of this budget"

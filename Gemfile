@@ -27,6 +27,8 @@ gem 'unicorn'
 gem 'rake' , '>= 0.9.2'
 gem 'react-rails'
 gem 'webpacker'
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
+
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
