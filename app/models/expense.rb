@@ -7,10 +7,10 @@ class Expense < ApplicationRecord
   validates :date, presence: true
   validates :description, presence: true
 
-  # validate do |expense|
-  #   @budget = Budget.find(expense.budget_id)
-  #   if expense.date < @budget.start_date or expense.date > @budget.end_date
-  #     errors.add(:date, I18n.t('models.expense.notice'))
-  #   end
-  # end
+  validate do |expense|
+    @budget = Budget.find(expense.budget_id)
+    if expense.date < @budget.start_date or expense.date > @budget.end_date
+      errors.add(:date, I18n.t('models.expense.notice'))
+    end
+  end
 end
