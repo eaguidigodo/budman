@@ -1,5 +1,5 @@
 
-<%= react_component("Page", { title: "Budget Table", description: "This table allow you to define a budget and different things you plan to do with it" }) %>
+<%= react_component("Page", { title: "Table Budget", description: "Cette tabble permet de conserver vos différents budgets" }) %>
 
 
 <h1 class="text-center" >Budgets</h1>
@@ -8,11 +8,11 @@
   <thead>
     <tr>
     <th scope="col">#</th>
-      <th scope="col">Start </th>
-      <th scope="col">End </th>
-      <th scope="col"> Amount</th>
-      <th scope="col">Used</th>
-      <th scope="col">Remain</th>
+      <th scope="col">Début </th>
+      <th scope="col">Fin </th>
+      <th scope="col"> Montant</th>
+      <th scope="col">Utilisé</th>
+      <th scope="col">Reste</th>
       <th scope="col" colspan="3">Action</th>
     </tr>
   </thead>
@@ -26,9 +26,9 @@
         <td><%= budget["amount"] %></td>
         <td><%= budget["used"] %></td>
         <td><%= budget["remain"] %></td>
-        <td><%= link_to 'Show', budget_path(budget["id"]) %></td>
-        <td><%= link_to 'Edit', edit_budget_path(budget["id"]) %></td>
-        <td><%= link_to 'Delete', budget_path(budget["id"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Détails', budget_path(budget["id"]) %></td>
+        <td><%= link_to 'Modifier', edit_budget_path(budget["id"]) %></td>
+        <td><%= link_to 'Supprimer', budget_path(budget["id"]), method: :delete, data: { confirm: I18n.t('views.actions.confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,7 +38,7 @@
 
 <div class="row">
       <div class="col-md-2 offset-md-2">
-        <%= button_to 'New budget', new_budget_path, :method => "get", class:"btn btn-primary btn-lg" %>
+        <%= button_to 'Nouveau budget', new_budget_path, :method => "get", class:"btn btn-primary btn-lg" %>
       </div>
 </div>
 

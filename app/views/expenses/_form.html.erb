@@ -15,12 +15,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :Day %>
-    <%= form.select :day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], class:"form-control"%>
+    <%= form.label :Jour %>
+    <%= form.select :day, ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'], class:"form-control"%>
   </div>
 
   <div class="form-group">
-    <%= form.label :Need %>
+    <%= form.label :Besoin %>
     <%= form.select :need, options_for_select(Need.distinct.pluck(:name).uniq) %>
   </div>
 
@@ -32,7 +32,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.number_field :amount, class:"form-control", placeholder:"Amount spent" %>
+    <%= form.number_field :amount, class:"form-control", placeholder:"Montant dépensé" %>
   </div>
 
   <div class="field">
@@ -41,9 +41,9 @@
 
   <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg") do %>
     <% if params[:id] %>
-    Update the Expense
+    Mettre à jour cette dépense
     <% else %>
-    Create a expense
+    Enregistrer une dépense
     <% end %>
    <% end %>
 <% end %>

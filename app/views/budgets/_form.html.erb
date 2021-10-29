@@ -17,42 +17,42 @@
   <form>
 
       <div class="field">
-        <%= form.label :Start_date %>
+        <%= form.label :Date_de_debut %>
         <%= form.date_select :start_date %>
       </div>
 
       <div class="field">
-        <%= form.label :End_date %>
+        <%= form.label :Date_de_fin %>
         <%= form.date_select :end_date %>
       </div>
 
       <div class="form-group">
-        <%= form.number_field :amount, placeholder: "Amount of this budget", class:"form-control" %>
+        <%= form.number_field :amount, placeholder: "Montant de ce budget", class:"form-control" %>
       </div>
 
       <hr>
-      <p> Make your needs list </p>
+      <p> Faites nous une liste de vos besoins </p>
       <%= form.fields_for :needs do |need| %>
-        <h2>Need<%=need.index + 1%> </h2>
+        <h2>Besoin<%=need.index + 1%> </h2>
 
         <div class="form-group">
-          <%= need.text_field :name, placeholder:"Name of the need" %>
+          <%= need.text_field :name, placeholder:"Nom" %>
         </div>
     
         <div class="field">
-          <%= need.number_field :amount, placeholder:"Amount of this need" %>
+          <%= need.number_field :amount, placeholder:"Montant prévu pour ça" %>
         </div>
     
         <div class="field">
-          <%= need.select :priority, ['Very important', 'Important', 'Not important'] %>
+          <%= need.select :priority, ['Très important', 'Important', 'Pas important'] %>
         </div>
         <% end %>
 
       <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg") do %>
         <% if params[:id] %>
-        Update the budget
+        Mettre à jour
         <% else %>
-        Create a budget
+        Créer budget
         <% end %>
        <% end %>
 </form>

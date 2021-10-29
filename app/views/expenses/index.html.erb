@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Expenses</h1>
-<%= react_component("Page", { title: "Expens Table", " This page shows you all your expenses" }) %>
+<%= react_component("Page", { title: "Table Expense", description: " Cette page vous montre toutes les dépenses que vous avez enregistrées." }) %>
 <table class="table table-hover">
 <thead>
   <tr>
   <th scope="col">#</th>
-    <th scope="col">Day </th>
-    <th scope="col">Need </th>
-    <th scope="col"> Amount</th>
+    <th scope="col">Jour </th>
+    <th scope="col">Besoin </th>
+    <th scope="col"> Montant</th>
     <th scope="col">Date</th>
     <th scope="col">Description</th>
     <th scope="col" colspan="3">Action</th>
@@ -24,9 +24,9 @@
       <td><%= expense.amount %></td>
       <td><%= expense.date %></td>
       <td><%= expense.description %></td>
-      <td><%= link_to 'Show', expense %></td>
-      <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-      <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to I18n.t('views.link.show'), expense %></td>
+      <td><%= link_to I18n.t('views.link.edit'), edit_expense_path(expense) %></td>
+      <td><%= link_to I18n.t('views.link.delete')', expense, method: :delete, data: { confirm: I18n.t('views.actions.confirm') } %></td>
     </tr>
   <% end %>
 </tbody>

@@ -67,4 +67,12 @@ en:
     messages:
       welcome: 'Bienvenue dans Budman, votre gestionnaire de budgets!'
       description: "Budman vous permet d'economiser votre argent. Vous pouvez journaliser vos depenses afin de mieux controler votre argent. Vous n'avez pas encore de compte?? Créez en un pour commencer l'aventure!"
-            
+    actions:
+      confirm: "Cette action est irréversible. Voulez vous continuer?"      
+    account:
+      create: "Créer un compte"    
+    link:
+      back: "Retour"
+      edit: "Modifier"
+      delete: "Supprimer"
+      show: "Détails"  

@@ -67,3 +67,12 @@ en:
     messages:
       welcome: 'Welcome to budman, your app money saver!'
       description: "Budman is the app that helps you save your money. You can register your daily expenses and consult them later. This will allow you to track your expenses and know how to better manage your account. D'ont know how to start? Click below to start the adventure..."
+    actions:
+      confirm: 'This action is irreversible. Continue anyway?'
+    account:
+      create: "Create an account"
+    link:
+      back: "Back"
+      edit: "Edit"
+      delete: "Delete"
+      show: "Show"

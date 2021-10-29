@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
-<%= react_component("Page", { title: "Expense Table", description:"Your expenses" }) %>
+<%= react_component("Page", { title: "Table Expense ", description:"Vos dépenses" }) %>
 
 <h2>Détails de la dépense </h2
 <p>
-  <strong>Day:</strong>
+  <strong>Jour:</strong>
   <%= @expense.day %>
 </p>
 
 <p>
-  <strong>Need:</strong>
+  <strong>Besoin:</strong>
   <%= @expense.need %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Montant:</strong>
   <%= @expense.amount %>
 </p>
 
@@ -28,5 +28,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', budgets_path %>
+<%= link_to I18n.t('views.link.edit'), edit_expense_path(@expense) %> |
+<%= link_to I18n.t('views.link.back'), budgets_path %>

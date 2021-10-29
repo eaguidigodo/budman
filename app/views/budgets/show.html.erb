@@ -1,31 +1,31 @@
 <h2>Budget details </h2
-<%= react_component("Page", { title: "Budget Table", description:" You are viewing all budgets you created" }) %>
+<%= react_component("Page", { title: " Table Budget", description:" Cette page vous montre la liste des budgets enregistrés" }) %>
 <p>
-  <strong>Start date:</strong>
+  <strong>Date début:</strong>
   <%= @budget.start_date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
+  <strong>Date de fin:</strong>
   <%= @budget.end_date %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong>Montant:</strong>
   <%= @budget.amount %>
 </p>
 <hr>
 
 <p>
-  <strong>Expenses already done:</strong>
+  <strong>Dépenses déjà réalisées:</strong>
 
   <table class="table table-hover">
   <thead>
     <tr>
     <th scope="col">#</th>
-      <th scope="col">Day </th>
-      <th scope="col">Need </th>
-      <th scope="col"> Amount</th>
+      <th scope="col">Jour </th>
+      <th scope="col">Besoin </th>
+      <th scope="col"> Montant</th>
       <th scope="col">Date</th>
       <th scope="col">Description</th>
       <th scope="col" colspan="3">Action</th>
@@ -41,9 +41,9 @@
         <td><%= expense.amount %></td>
         <td><%= expense.date %></td>
         <td><%= expense.description %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Détails', expense %></td>
+        <td><%= link_to 'Modifier', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Supprimer', expense, method: :delete, data: { confirm:  I18n.t('views.actions.confirm')  } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -52,7 +52,7 @@
 
 
 <div class="col-md-2 offset-md-2">
-<%= link_to 'Record an expense', new_expense_path(@budget.id), :method => "get", class:"btn btn-primary btn-lg text-white" %>
+<%= link_to 'Enregistrer une nouvelle dépense', new_expense_path(@budget.id), :method => "get", class:"btn btn-primary btn-lg text-white" %>
 </div>
-<%= link_to 'Edit', edit_budget_path(@budget) %> |
-<%= link_to 'Back', budgets_path %>
+<%= link_to 'Modifier', edit_budget_path(@budget) %> |
+<%= link_to 'Retour', budgets_path %>

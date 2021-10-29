@@ -1,7 +1,7 @@
 <h1>Editing Expense</h1>
-<%= react_component("Page", { title: "Expense Table", description:"This table allow you to record daily expenses. An expense is recorded for a specific budget" }) %>
+<%= react_component("Page", { title: "Table Expense", description:"Cette table permet de sauvegarder les dépenses que vous effectuez" }) %>
 
 <%= render 'form', expense: @expense %>
 
-<%= link_to 'Show', @expense %> |
-<%= link_to 'Back', budgets_path %>
+<%= link_to I18n.t('views.link.show'), @expense %> |
+<%= link_to I18n.t('views.link.back'), budgets_path %>
