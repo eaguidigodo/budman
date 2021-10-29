@@ -81,3 +81,6 @@ en:
     notice2: "End date must be greater than start date."
     expense:
       notice: "The depense date doesn't correspond to the defined period of this budget"
+    admin:
+      notice: "You are not access to this page"
+    

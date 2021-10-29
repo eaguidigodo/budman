@@ -13,7 +13,9 @@ RailsAdmin.config do |config|
 
 
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.try(:admin?) 
+    unless current_user.try(:admin?) 
+      redirect_to main_app.root_path, notice: I18n.t('models.admin.notice')
+    end
   end
 
   #config.authorize_with :cancan
