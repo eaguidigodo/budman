@@ -13,10 +13,7 @@ RailsAdmin.config do |config|
 
 
   config.authorize_with do
-    puts "Voici ce que j'ai user: #{current_user} et status: #{current_user.admin}"
-    raise
-    redirect_to main_app.root_path unless current_user.admin == true 
-    
+    redirect_to main_app.root_path unless current_user.try(:admin?) 
   end
 
   #config.authorize_with :cancan
