@@ -15,9 +15,40 @@
   <%= @budget.amount %>
 </p>
 <hr>
-
+<% if @summary.present? %>
 <p>
+  <strong>Récupitulatif de vos dépenses:</strong>
+</p>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Besoin </th>
+      <th scope="col"> Montant attribué</th>
+      <th scope="col">Montant déjà utilisé</th>
+      <th scope="col">Montant restant</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <% @summary.each do |need, val| %>
+    <tr>
+      <td><%= need %></td>
+      <td><%= val["give"] %></td>
+      <td><%= val["used"] %></td>
+      <td><%= val["give"] - val["used"] %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<br>
+<div class="col-md-2 offset-md-2">
+<%= link_to 'Enregistrer une nouvelle dépense', new_expense_path(@budget.id), :method => "get", class:"btn btn-primary btn-lg text-white" %>
+</div>
+  <% else %>
+  <p>
   <strong>Dépenses déjà réalisées:</strong>
+ </p>
 
   <table class="table table-hover">
   <thead>
@@ -31,7 +62,6 @@
       <th scope="col" colspan="3">Action</th>
     </tr>
   </thead>
-
   <tbody>
     <% @budget.expenses.each_with_index do |expense,i| %>
       <tr>
@@ -50,9 +80,16 @@
 </table>
 <br>
 
+<div class=row>
 
 <div class="col-md-2 offset-md-2">
 <%= link_to 'Enregistrer une nouvelle dépense', new_expense_path(@budget.id), :method => "get", class:"btn btn-primary btn-lg text-white" %>
 </div>
-<%= link_to 'Modifier', edit_budget_path(@budget) %> |
+
+<div class="col-md-2 offset-md-2">
+<%= link_to 'Résumé de vos dépenses', budget_path(@budget.id, :is_resume => true), :method => "get", class:"btn btn-primary btn-lg text-white" %>
+</div>
+</div>
+<%= link_to 'Modifier', edit_budget_path(@budget) %> 
+<% end %>
 <%= link_to 'Retour', budgets_path %>

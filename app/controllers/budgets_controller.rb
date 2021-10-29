@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-  before_action :set_budget, only: %i[ show edit update destroy ]
+  before_action :set_budget, only: %i[ show edit update destroy summary]
   before_action :authenticate_user!, only: [:new, :create, :index, :edit, :update, :destroy]
 
   # GET /budgets or /budgets.json
@@ -32,6 +32,42 @@ class BudgetsController < ApplicationController
   end
 
   def show
+
+    if params[:is_resume].present?
+      dic_needs_with_amount = {}
+      @summary = {}
+      @summary_ = {}
+      puts "les needs sont: #{@budget.needs.distinct.pluck(:name, :amount)}, bbb, #{@budget.expenses.to_json}"
+      needs_with_amount = @budget.needs.distinct.pluck(:name, :amount)
+
+      needs_with_amount.each do |need|
+        dic_needs_with_amount[need[0]] = need[1]
+      end
+
+      @budget.expenses.each_with_index do |expense, i|
+        #puts " voici budget de expense: #{expense.amount} "
+        #puts "voici expense.need avant #{ @summary}, #{ @summary[expense.need]} et voici "
+        if @summary.has_key?(expense.need)
+
+         # puts "voici expense.need #{ @summary}, #{ @summary[expense.need]} et voici #{@summary[expense.need]["used"]}"
+
+          used = @summary[expense.need]["used"] 
+          used += expense.amount
+          @summary[expense.need]["used"] = used
+        else
+          puts " voici budget de expense: #{dic_needs_with_amount} "
+          @summary[expense.need] = {"used" => 0, "give" => dic_needs_with_amount[expense.need], "remain" => 0}
+          @summary[expense.need]["used"] = expense.amount
+          #@summary[expense.need]["give"] = dic_needs_with_amount[expense.need] 
+          #@summary[expense.need]["remain"] = dic_needs_with_amount[expense.need]
+        end
+      end 
+      puts " ####### mon dico #{@summary} "  
+      @summary.each do |need, val|
+        puts "voici need #{need} et voici sa valeur #{val["used"]}"  
+      end  
+      #raise 
+    end
   end
 
   def new

@@ -1,6 +1,6 @@
 <%= form_with(model: expense, local: true) do |form| %>
 
-    <input type="text" value="<%= @budget.id %>" name="budget_id" />
+    <input type="hidden" value="<%= @budget.id %>" name="budget_id" />
 
   <% if expense.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <%= form.label :Besoin %>
-    <%= form.select :need, options_for_select(Need.distinct.pluck(:name).uniq) %>
+    <%= form.select :need, options_for_select(@budget.needs.distinct.pluck(:name).uniq, include_blank: false) %>
   </div>
 
 
