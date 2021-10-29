@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 class Page extends React.Component {
   render () {
     return (
-      <React.Fragment>
+      <React.Fragment className="text-info h2" >
         Title: {this.props.title}
         Description: {this.props.description}
       </React.Fragment>
