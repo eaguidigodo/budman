@@ -2,10 +2,6 @@
   <div class="card-header">
     Budget Manager (BudMan)
   </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= I18n.t('views.messages.welcome') %></h5>
-    <p class="card-text top"><%= I18n.t('views.messages.description') %></p>
-    <%= link_to I18n.t('views.account.create'), new_user_registration_path, class:"btn btn-primary btn-lg text-white" %>
-  </div>
-
+  <%= react_component("Welcome", {title: I18n.t('views.messages.welcome'), description: I18n.t('views.messages.description'),}) %>
+  <%= link_to I18n.t('views.account.create'), new_user_registration_path, class:"btn btn-primary btn-lg text-white" %>
 </div>

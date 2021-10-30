@@ -3,14 +3,18 @@ import PropTypes from "prop-types"
 class Welcome extends React.Component {
   render () {
     return (
-      <React.Fragment>
-         {this.props.greeting}
-      </React.Fragment>
+      <div class="card text-center">
+
+  <div class="card-body">
+    <h5 class="card-title">{this.props.title}</h5>
+    <p class="card-text top">{this.props.description}</p>
+    
+  </div>
+  
+</div>
     );
   }
 }
 
-Welcome.propTypes = {
-  greeting: PropTypes.string
-};
+
 export default Welcome
