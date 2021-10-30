@@ -1,6 +1,6 @@
 class Budget < ApplicationRecord
     belongs_to :user
-    has_many :needs
+    has_many :needs, dependent: :destroy
     has_many :expenses, dependent: :destroy
 
     validates :amount, presence: true
