@@ -20,6 +20,13 @@ FactoryBot.define do
     admin {false}
   end
 
+  factory :user3, class: User do 
+    name { "user3" }
+    email { "user3@user3.com" }
+    password { "userpass" }
+    admin {false}
+  end
+
   factory :third_user, class: User do 
     username { "nuxlikage" }
     email { "nuxlikage@gmail.com" }

@@ -34,7 +34,7 @@ end
 10.times do |n|
     
     start_date= Date.today
-    end_date = Date.today
+    end_date = "2021-12-30"
     amount =  Faker::Number.number(digits: 7)
     Budget.create!(start_date: start_date,
                 end_date: end_date,

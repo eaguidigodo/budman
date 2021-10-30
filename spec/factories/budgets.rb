@@ -1,14 +1,14 @@
 FactoryBot.define do
 
   factory :budget do
-    start_date { '2022-10-01' }
-    end_date { '2022-11-01' }
+    start_date { '2021-10-30' }
+    end_date { '2021-11-30' }
     amount {'150000'}
   end
 
   factory :budget2, class: Budget do
-    start_date { '2023-10-01' }
-    end_date { '2023-11-01' }
+    start_date { '2021-10-30' }
+    end_date { '2021-11-30' }
     amount {'5327889'}
   end
 
@@ -28,7 +28,7 @@ FactoryBot.define do
       day {'Wednesday'}
       need { 'fluel' }
       amount {'5000'}
-      date { '2022-10-02' }
+      date { '2021-10-31' }
       description {'I just buy pizza'}
   end
 

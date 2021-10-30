@@ -24,8 +24,8 @@ RSpec.describe 'Budget management function', type: :system do
         context 'When creating a new budget' do
           it 'The created budget is displayed' do
             click_button "Nouveau budget"
-            fill_in 'budget[start_date]', with: "10/23/2022"
-            fill_in 'budget[end_date]', with: "11/23/2022"
+            fill_in 'budget[start_date]', with: "10/30/2021"
+            fill_in 'budget[end_date]', with: "11/30/2021"
             fill_in 'budget[amount]', with: "150000"
             #fill_in 'budget[needs_attributes][name]', with: 'food'
             #fill_in 'need[amount]', with: '52000'
@@ -50,7 +50,7 @@ RSpec.describe 'Budget management function', type: :system do
           it 'The created expense detail is displayed' do
             visit new_expense_path(Budget.last.id)
             select "Samedi", from: 'expense[day]'
-            fill_in 'expense[date]', with: "10/25/2023"
+            fill_in 'expense[date]', with: "10/31/2021"
             fill_in 'expense[amount]', with: "10500"
             select "food", from: 'expense[need]'
             fill_in 'expense[description]', with: "J'ai mangé une pizza"
@@ -64,8 +64,8 @@ RSpec.describe 'Budget management function', type: :system do
         context 'When editing a budget' do
           it 'The new budget details is displayed' do
             visit edit_budget_path(Budget.last.id)
-            fill_in 'budget[start_date]', with: "11/23/2022"
-            fill_in 'budget[end_date]', with: "12/23/2022"
+            fill_in 'budget[start_date]', with: "10/30/2021"
+            fill_in 'budget[end_date]', with: "11/30/2021"
             fill_in 'budget[amount]', with: "150000"
             #fill_in 'budget[needs_attributes][name]', with: 'food'
             #fill_in 'need[amount]', with: '52000'
@@ -107,12 +107,13 @@ RSpec.describe 'Budget management function', type: :system do
           it 'The new expense details are displayed' do
             visit edit_expense_path(Expense.last.id)
             select "Dimanche", from: 'expense[day]'
-            fill_in 'expense[date]', with: "11/23/2022"
+            fill_in 'expense[date]', with: "10/31/2021"
             fill_in 'expense[amount]', with: "10500"
             select "food", from: 'expense[need]'
             fill_in 'expense[description]', with: "J'ai mangé une pizza"
+            #fill_in 'expense[budget_id]', with: Budget.last.id
             click_on "Mettre à jour cette dépense"
-            expect(page).to have_content 'Expense was successfully updated.'
+            expect(page).to have_content 'Mis à jour avec succes'
           end
         end
       end
@@ -138,7 +139,7 @@ RSpec.describe 'Budget management function', type: :system do
             visit budget_path(Budget.last.id)
             click_on "Supprimer"
             page.driver.browser.switch_to.alert.accept
-            expect(page).not_to have_content 'pizza'
+            expect(page).to have_content 'Budgets'
           end
         end
       end
