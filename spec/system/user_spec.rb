@@ -24,7 +24,7 @@ RSpec.describe 'User registration / login / logout function', type: :system do
         fill_in 'user[password]', with: 'userpass'
         fill_in 'user[password_confirmation]', with: 'userpass'
         click_on "Create account"
-        expect(page).to have_content 'Welcome to budman'
+        expect(page).to have_content 'Bienvenue, votre compte a bien été créé!'
       end
       it 'A test that jumps to the login screen when you are not logged in' do
         visit budgets_path
@@ -41,14 +41,14 @@ RSpec.describe 'User registration / login / logout function', type: :system do
 
     context 'User already has an account' do
         it 'User can log in' do
-            expect(page).to have_content 'Create new budget'
+            expect(page).to have_content 'Début Fin'
         end
     end
 
     context 'User is actually logged in and wants to logout' do
         it 'Being able to log out' do
             click_link 'Logout'
-            expect(current_path).to eq new_user_session_path
+            expect(current_path).to eq "/"
         end
     end
 end
