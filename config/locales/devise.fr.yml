@@ -81,5 +81,5 @@ en:
     notice2: "La date de fin doit être supérieure à celle de début"
     expense: 
       notice: "La date de cette dépense ne figure pas dans la période définie pour ce budget"
-    admin:
+    dmin:
       notice: "Vous n'êtes pas autorisé à visiter cette page"
